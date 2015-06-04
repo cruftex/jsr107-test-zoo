@@ -9,7 +9,7 @@
     <version>1.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>infinispan-V7-test</artifactId>
+  <artifactId>Infinispan-V7-test</artifactId>
   <version>1.1-SNAPSHOT</version>
   <name>infinispan 7.x test</name>
   <url>http://infinispan.org/docs/7.0.x/user_guide/user_guide.html#_using_infinispan_as_a_jsr107_jcache_provider</url>
