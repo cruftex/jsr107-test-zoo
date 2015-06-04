@@ -1,0 +1,269 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.1-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <name>JSR107 TCK testing zoo</name>
+    <description>
+        Collection of modules that test implementations of JSR107 against the TCK. This is the parent pom of all
+        testing modules.
+    </description>
+    <url>https://github.com/cruftex/jsr107-test-zoo</url>
+
+    <properties>
+        <jcache.api.version>1.0.0</jcache.api.version>
+        <jcache.tck.version>1.0.1</jcache.tck.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <CacheInvocationContextImpl>
+            javax.cache.annotation.impl.cdi.CdiCacheKeyInvocationContextImpl
+        </CacheInvocationContextImpl>
+
+        <domain-lib-dir>${project.build.directory}/domainlib</domain-lib-dir>
+        <domain-jar>domain.jar</domain-jar>
+
+        <!--IPV4-->
+        <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+
+        <!--
+            Implementation specifications, the defaults below are for the RI,
+            this needs to be overridden in submodules and replaced with the parameters of the
+            implementation.
+        -->
+
+        <!-- Change the following properties on the command line to override with the coordinates for your implementation-->
+        <implementation-groupId>org.jsr107.ri</implementation-groupId>
+        <implementation-artifactId>cache-ri-impl</implementation-artifactId>
+        <implementation-version>1.0.0</implementation-version>
+
+        <!-- Change the following properties to your CacheManager and Cache implementation. Used by the unwrap tests. -->
+        <CacheManagerImpl>org.jsr107.ri.RICacheManager</CacheManagerImpl>
+        <CacheImpl>org.jsr107.ri.RICache</CacheImpl>
+        <CacheEntryImpl>org.jsr107.ri.RIEntry</CacheEntryImpl>
+
+        <!--Change the following to point to your MBeanServer, so that the TCK can resolve it. -->
+        <javax.management.builder.initial>org.jsr107.ri.management.RITCKMBeanServerBuilder
+        </javax.management.builder.initial>
+        <org.jsr107.tck.management.agentId>RIMBeanServer</org.jsr107.tck.management.agentId>
+
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>${jcache.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>test-domain</artifactId>
+            <version>${jcache.tck.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-tests</artifactId>
+            <version>${jcache.tck.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-tests</artifactId>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+            <version>${jcache.tck.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>1.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>${implementation-groupId}</groupId>
+            <artifactId>${implementation-artifactId}</artifactId>
+            <version>${implementation-version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+        <testResources>
+            <testResource>
+                <directory>../src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+
+            <!-- deploy test jar so can be used by other jcache implementations.
+              - remove this plugin if no longer want test-jar deployed.
+              -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                    <!--Required because JUnit will not detect tests simply included in a dep-->
+                    <execution>
+                        <id>copy-cache-tests</id>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.testOutputDirectory}
+                            </outputDirectory>
+                            <includeArtifactIds>cache-tests</includeArtifactIds>
+                            <includeScope>test</includeScope>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-domain</id>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax.cache</groupId>
+                                    <artifactId>app-domain</artifactId>
+                                    <version>${jcache.tck.version}</version>
+                                    <outputDirectory>${domain-lib-dir}
+                                    </outputDirectory>
+                                    <destFileName>${domain-jar}</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <systemPropertyVariables>
+                        <java.net.preferIPv4Stack>${java.net.preferIPv4Stack}</java.net.preferIPv4Stack>
+                        <domainJar>${domain-lib-dir}/${domain-jar}</domainJar>
+                        <javax.management.builder.initial>${javax.management.builder.initial}
+                        </javax.management.builder.initial>
+                        <org.jsr107.tck.management.agentId>${org.jsr107.tck.management.agentId}
+                        </org.jsr107.tck.management.agentId>
+                        <javax.cache.CacheManager>${CacheManagerImpl}</javax.cache.CacheManager>
+                        <javax.cache.Cache>${CacheImpl}</javax.cache.Cache>
+                        <javax.cache.Cache.Entry>${CacheEntryImpl}</javax.cache.Cache.Entry>
+                        <javax.cache.annotation.CacheInvocationContext>$
+                            {CacheInvocationContextImpl}
+                        </javax.cache.annotation.CacheInvocationContext>
+                        <!-- by default ignite turns of the TCK logging, enable again -->
+                        <IGNITE_QUIET>false</IGNITE_QUIET>
+                    </systemPropertyVariables>
+                    <excludes>
+                        <exclude>**/annotation/*Test.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <echo>Test module: ${project.name}</echo>
+                                <echo>Implementation URL: ${project.url}</echo>
+                                <echo></echo>
+                                <echo>Test configuration:</echo>
+                                <echo>&lt;implementation-groupId>${implementation-groupId}&lt;/immplementation-groupId></echo>
+                                <echo>&lt;implementation-artifactId>${implementation-artifactId}&lt;/implementation-artifactId></echo>
+                                <echo>&lt;implementation-version>${implementation-version}&lt;/implementation-version></echo>
+
+                                <echo>&lt;CacheManagerImpl>${CacheManagerImpl}&lt;/CacheManagerImpl></echo>
+                                <echo>&lt;CacheImpl>${CacheImpl}&lt;/CacheImpl></echo>
+                                <echo>&lt;CacheEntryImpl>${CacheEntryImpl}&lt;/CacheEntryImpl></echo>
+
+                                <echo>&lt;javax.management.builder.initial>${javax.management.builder.initial}&lt;/javax.management.builder.initial></echo>
+                                <echo>&lt;org.jsr107.tck.management.agentId>${org.jsr107.tck.management.agentId}&lt;/org.jsr107.tck.management.agentId></echo>
+
+                                <echo>&lt;jcache.api.version>${jcache.api.version}&lt;jcache.api.version></echo>
+                                <echo>&lt;jcache.tck.version>${jcache.tck.version}&lt;jcache.tck.version></echo>
+                                <echo>&lt;jsr107-test-zoo-version>${project.version}&lt;jsr107-test-zoo-version></echo>
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!--
+      Module names include version numbers intentionally. If multiple versions of one implementation
+      get support and may be in use, multiple module of one implementation can be added.
+    -->
+    <modules>
+        <module>RI-V1-test</module>
+        <module>infinispan-V7-test</module>
+        <module>ignite-V1-test</module>
+        <module>ehcache-jcache-V1-test</module>
+        <module>hazelcast-V3.4-test</module>
+    </modules>
+
+</project>

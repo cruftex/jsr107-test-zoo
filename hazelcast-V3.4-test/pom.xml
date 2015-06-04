@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>hazelcast-V3.4-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>hazelcast V3.4.x test</name>
+  <url>http://docs.hazelcast.org/docs/3.4/manual/html/jcache.html</url>
+
+  <properties>
+
+    <!-- Implementation coordinates -->
+    <implementation-groupId>com.hazelcast</implementation-groupId>
+    <implementation-artifactId>hazelcast</implementation-artifactId>
+    <implementation-version>3.4.2</implementation-version>
+
+    <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
+    <CacheManagerImpl>com.hazelcast.cache.impl.HazelcastServerCacheManager</CacheManagerImpl>
+    <CacheImpl>com.hazelcast.cache.ICache</CacheImpl>
+    <CacheEntryImpl>com.hazelcast.cache.impl.CacheEntry</CacheEntryImpl>
+
+    <!--The MBeanServer, so that the TCK can resolve it. -->
+    <javax.management.builder.initial>com.hazelcast.cache.impl.TCKMBeanServerBuilder
+    </javax.management.builder.initial>
+    <org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+
+  </properties>
+
+</project>

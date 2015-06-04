@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>ignite-V1-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>ignite 1.x test</name>
+  <url>http://apacheignite.readme.io/v1.0/docs/jcache</url>
+
+  <properties>
+
+    <!-- Implementation coordinates -->
+    <implementation-groupId>org.apache.ignite</implementation-groupId>
+    <implementation-artifactId>ignite-core</implementation-artifactId>
+    <implementation-version>1.0.0</implementation-version>
+
+    <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
+    <CacheManagerImpl>org.apache.ignite.cache.CacheManager</CacheManagerImpl>
+    <CacheImpl>org.apache.ignite.IgniteCache</CacheImpl>
+    <CacheEntryImpl>org.apache.ignite.internal.processors.cache.CacheEntryImpl</CacheEntryImpl>
+
+    <!--The MBeanServer, so that the TCK can resolve it. -->
+    <javax.management.builder.initial>org.apache.ignite.internal.tck.TCKMBeanServerBuilder
+    </javax.management.builder.initial>
+    <org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+
+  </properties>
+
+</project>

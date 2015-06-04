@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>infinispan-V7-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>infinispan 7.x test</name>
+  <url>http://infinispan.org/docs/7.0.x/user_guide/user_guide.html#_using_infinispan_as_a_jsr107_jcache_provider</url>
+
+  <properties>
+
+    <!-- Implementation coordinates -->
+    <implementation-groupId>org.infinispan</implementation-groupId>
+    <implementation-artifactId>infinispan-jcache</implementation-artifactId>
+    <implementation-version>7.2.2.Final</implementation-version>
+
+    <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
+    <CacheManagerImpl>org.infinispan.jcache.embedded.JCacheManager</CacheManagerImpl>
+    <CacheImpl>org.infinispan.jcache.embedded.JCache</CacheImpl>
+    <CacheEntryImpl>org.infinispan.jcache.JCacheEntry</CacheEntryImpl>
+
+    <!--The MBeanServer, so that the TCK can resolve it. -->
+    <javax.management.builder.initial>org.infinispan.jcache.tck.TckMbeanServerBuilder
+    </javax.management.builder.initial>
+    <org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+
+  </properties>
+
+
+</project>

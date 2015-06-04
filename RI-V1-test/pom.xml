@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>RI-V1-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+
+  <name>RI Version 1.0 test</name>
+  <url>https://github.com/jsr107/RI</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jsr107.ri</groupId>
+      <artifactId>cache-ri-impl</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+  </dependencies>
+
+</project>
