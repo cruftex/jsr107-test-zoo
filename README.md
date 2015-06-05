@@ -25,13 +25,18 @@ Each test for an implementation is in a submodule. The submodules contain the re
 ## Report
 
 A tiny awk file extracts all relevant information from the output to get a complete overview of the configuration 
-for each implementation and there compliance status. Example:
+for each implementation and there compliance status.
+
+The latest test run report is here: [report.md](report.md) 
+ 
+Example:
 
 ````
-Test module: RI Version 1.0 test
+## RI Version 1.0 test
+
 Implementation URL: https://github.com/jsr107/RI
 
-Test configuration:
+### Test configuration:
 <implementation-groupId>org.jsr107.ri</immplementation-groupId>
 <implementation-artifactId>cache-ri-impl</implementation-artifactId>
 <implementation-version>1.0.0</implementation-version>
@@ -48,5 +53,5 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 Excluded tests: 1
 
-'org.jsr107.tck.CachingTest' 'dummyTest'.
+org.jsr107.tck.CachingTest dummyTest
 ````
