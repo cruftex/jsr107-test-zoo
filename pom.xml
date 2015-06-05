@@ -264,6 +264,7 @@
         <module>ignite-V1-test</module>
         <module>ehcache-jcache-V1-test</module>
         <module>hazelcast-V3.4-test</module>
+        <module>jcs-V2-test</module>
     </modules>
 
 </project>
