@@ -14,23 +14,36 @@
 
 # Filter and print only relevant output from the command: mvn tes
 
-/Test module/ && !/zoo$/ { header=1; excludedCnt=0; excludedTxt=""; print ""; print "";}
-/\[INFO\]/ && header { header=0; next; }
+BEGIN { print "# JSR107 open source implementation test overview"; }
+
+/Test module/ && !/zoo$/ { header=1; excludedCnt=0; $1=""; $2=""; $3=""; print "## "trim($0); print ""; next;}
+/\[INFO\]/ && header { header=0; print "````"; next; }
+header && /Test configuration/ { print "### Test configuration"; print ""; print "```` xml"; next; }
 header { $1=""; print trim($0); next;}
 
-/EXCLUDING TEST/ { excludedCnt++; excludedTxt=excludedTxt"\n"$5" "$6;}
+/EXCLUDING TEST/ { excludedTxt[excludedCnt++]=$5" "$6;}
 
-/Results :/ { results=1; next; }
+/Results :/ { results=1; print ""; print "### Test result"; next; }
 /\[INFO\]/ && results { results=0; 
-  print "Excluded tests: "excludedCnt;
-  print excludedTxt;
+  print "### Excluded tests"; print "";
+  # excludedCnt;
+  # split (excludedTxt, A, "\n");
+  for (i = 0; i < excludedCnt; i++) {
+    txt=excludedTxt[i];
+    sub(/\.$/, "", txt);
+    gsub(/'/, "", txt);
+    print "- "txt;
+  }
+  print ""; print "Excluded tests total: "excludedCnt;
+  print "";
+  # print excludedTxt;
   next; }
 results { print; next; }
 
 
-/\[INFO\] Reactor Summary:/ { print ""; summary=1; }
-/\[INFO\] ----------.*/ && summary { summary=0; next; }
-summary { $1=""; print trim($0); next; } 
+/\[INFO\] Reactor Summary:/ { print ""; summary=1; print "# Test run summary"; print "````"; next;}
+/\[INFO\] ----------.*/ && summary { print "````"; summary=0; next; }
+summary && /\.\./ { $1=""; print trim($0); next; } 
 
 function ltrim(s) { sub(/^[ \t\r\n]+/, "", s); return s }
 function rtrim(s) { sub(/[ \t\r\n]+$/, "", s); return s }
