@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>jcs-V2-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+
+  <name>Apache JCS Version 2.0 test</name>
+  <url>https://commons.apache.org/proper/commons-jcs/</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-jcs-jcache</artifactId>
+      <version>2.0-beta-1</version>
+    </dependency>
+  </dependencies>
+
+
+  <properties>
+
+    <!-- Implementation coordinates -->
+    <implementation-groupId>org.apache.commons</implementation-groupId>
+    <implementation-artifactId>commons-jcs-jcache</implementation-artifactId>
+    <implementation-version>2.0-beta-1</implementation-version>
+
+    <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
+    <CacheManagerImpl>org.apache.commons.jcs.jcache.JCSCachingManager</CacheManagerImpl>
+    <CacheImpl>org.apache.commons.jcs.jcache.JCSCache</CacheImpl>
+    <CacheEntryImpl>org.apache.commons.jcs.jcache.JCSEntry</CacheEntryImpl>
+
+    <!--The MBeanServer, so that the TCK can resolve it. -->
+    <javax.management.builder.initial>org.apache.commons.jcs.jcache.jmx.ConfigurableMBeanServerIdBuilder</javax.management.builder.initial>
+    <org.jsr107.tck.management.agentId>MBeanServerJCS</org.jsr107.tck.management.agentId>
+  </properties>
+
+</project>
