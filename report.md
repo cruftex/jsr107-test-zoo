@@ -173,13 +173,44 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 Excluded tests total: 13
 
+## Apache JCS Version 2.0 test
+
+Implementation URL: https://commons.apache.org/proper/commons-jcs/
+
+### Test configuration
+
+```` xml
+<implementation-groupId>org.apache.commons</immplementation-groupId>
+<implementation-artifactId>commons-jcs-jcache</implementation-artifactId>
+<implementation-version>2.0-beta-1</implementation-version>
+<CacheManagerImpl>org.apache.commons.jcs.jcache.JCSCachingManager</CacheManagerImpl>
+<CacheImpl>org.apache.commons.jcs.jcache.JCSCache</CacheImpl>
+<CacheEntryImpl>org.apache.commons.jcs.jcache.JCSEntry</CacheEntryImpl>
+<javax.management.builder.initial>org.apache.commons.jcs.jcache.jmx.ConfigurableMBeanServerIdBuilder</javax.management.builder.initial>
+<org.jsr107.tck.management.agentId>MBeanServerJCS</org.jsr107.tck.management.agentId>
+<jcache.api.version>1.0.0<jcache.api.version>
+<jcache.tck.version>1.0.1<jcache.tck.version>
+<jsr107-test-zoo-version>1.1-SNAPSHOT<jsr107-test-zoo-version>
+````
+
+### Test result
+
+Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
+
+### Excluded tests
+
+- org.jsr107.tck.CachingTest dummyTest
+
+Excluded tests total: 1
+
 
 # Test run summary
 ````
-JSR107 TCK testing zoo ............................. SUCCESS [ 1.496 s]
-RI Version 1.0 test ................................ SUCCESS [ 27.553 s]
-Infinispan 7.x test ................................ SUCCESS [ 29.322 s]
-Apache Ignite 1.x test ............................. SUCCESS [02:02 min]
-Ehcache-JCache V1.x test ........................... SUCCESS [ 30.417 s]
-Hazelcast V3.4.x test .............................. SUCCESS [04:35 min]
+JSR107 TCK testing zoo ............................. SUCCESS [ 1.286 s]
+RI Version 1.0 test ................................ SUCCESS [ 26.883 s]
+Infinispan 7.x test ................................ SUCCESS [ 29.816 s]
+Apache Ignite 1.x test ............................. SUCCESS [01:42 min]
+Ehcache-JCache V1.x test ........................... SUCCESS [ 30.461 s]
+Hazelcast V3.4.x test .............................. SUCCESS [04:36 min]
+Apache JCS Version 2.0 test ........................ SUCCESS [ 27.888 s]
 ````
