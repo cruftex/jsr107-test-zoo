@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>coherence-V12-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+
+  <name>coherence V12.1.3 test</name>
+  <url>http://www.oracle.com/technetwork/middleware/coherence/overview/index.html</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.oracle.coherence</groupId>
+      <artifactId>coherence-jcache</artifactId>
+      <version>12.1.3-0-0</version>
+      <!-- coherence has the wrong coordinates of the JCache API, exclude this -->
+      <exclusions>
+        <exclusion>
+          <groupId>javax.cache</groupId>
+          <artifactId>java-api</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <properties>
+
+  <!-- Implementation coordinates, we do not declare coherence-jcache here, since we need an exclusion -->
+  <implementation-groupId>com.oracle.coherence</implementation-groupId>
+  <implementation-artifactId>coherence</implementation-artifactId>
+  <implementation-version>12.1.3-0-0</implementation-version>
+
+  <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
+  <CacheManagerImpl>com.tangosol.coherence.jcache.CoherenceBasedCacheManager</CacheManagerImpl>
+  <CacheImpl>com.tangosol.coherence.jcache.CoherenceBasedCache</CacheImpl>
+  <CacheEntryImpl>com.tangosol.coherence.jcache.common.CoherenceCacheEntry</CacheEntryImpl>
+
+  <!--The MBeanServer, so that the TCK can resolve it. -->
+  <javax.management.builder.initial>com.tangosol.net.management.jmx.WrapperMBeanServerBuilder</javax.management.builder.initial>
+  <org.jsr107.tck.management.agentId>Coherence WrapperMBeanServer</org.jsr107.tck.management.agentId>
+
+  </properties>
+
+</project>

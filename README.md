@@ -8,6 +8,10 @@ source cache implementations. These are:
   * Hazelcast
   * Apache Ignite
   * Infinispan
+  
+These closed source implementations need to be downloaded separately:
+
+  * Oracle Coherence
 
 ## Running the tests
 
@@ -16,6 +20,21 @@ source cache implementations. These are:
 ## Run the tests and get a summary report
 
     mvn clean test 2>&1 | awk -f report.awk
+
+## Run tests of Open Source implementations and Oracle Coherence
+
+    mvn -Pcoherence clean test
+    
+Oracle Coherence jars are not available on maven central. They need to be downloaded and installed
+separately. Installing Coherence for testing purposes is quite easy, 
+see [Install Oracle Coherence](coherence-V12-test/install-coherence.md).
+
+## Running the tests against a new TCK version
+
+    mvn -fn -Pcoherence -Djcache.tck.version=1.0.1-SNAPSHOT clean test
+    
+The switch `-fn` means fail never and ensures that all implementations are tested. If this parameter is not set
+maven will stop the build after the first failing module.
 
 ## Structure
 

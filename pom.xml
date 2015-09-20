@@ -197,7 +197,7 @@
                         <javax.cache.annotation.CacheInvocationContext>$
                             {CacheInvocationContextImpl}
                         </javax.cache.annotation.CacheInvocationContext>
-                        <!-- by default ignite turns of the TCK logging, enable again -->
+                        <!-- by default ignite turns off the TCK logging, enable again -->
                         <IGNITE_QUIET>false</IGNITE_QUIET>
                     </systemPropertyVariables>
                     <excludes>
@@ -266,5 +266,14 @@
         <module>hazelcast-V3.4-test</module>
         <module>jcs-V2-test</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>coherence</id>
+            <modules>
+                <module>coherence-V12-test</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>
