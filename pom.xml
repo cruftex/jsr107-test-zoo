@@ -274,6 +274,14 @@
                 <module>coherence-V12-test</module>
             </modules>
         </profile>
+        <profile>
+            <id>ehcache3</id>
+            <modules>
+                <module>ehcache-V3-test</module>
+            </modules>
+        </profile>
     </profiles>
+
+
 
 </project>
