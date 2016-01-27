@@ -199,7 +199,7 @@
                         </javax.cache.annotation.CacheInvocationContext>
                         <!-- by default ignite turns off the TCK logging, enable again -->
                         <IGNITE_QUIET>false</IGNITE_QUIET>
-                        <!-- by default BlazingCache passes the latest version of the TCK, this flag enalbes compatibility for the 1.0.1 version --> 
+                        <!-- by default BlazingCache passes the latest version of the TCK, this flag enables compatibility for the 1.0.1 version --> 
                         <org.blazingcache.jsr107tck101compatmode>true</org.blazingcache.jsr107tck101compatmode>
                     </systemPropertyVariables>
                     <excludes>
