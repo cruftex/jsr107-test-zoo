@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>caffeine-V2-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>Caffeine V2.x test</name>
+  <url>https://github.com/ben-manes/caffeine</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>${implementation-groupId}</groupId>
+      <artifactId>${implementation-artifactId}</artifactId>
+      <version>${implementation-version}</version>
+      <classifier>tests</classifier>
+    </dependency>
+  </dependencies>
+
+  <properties>
+
+    <!-- Implementation coordinates -->
+    <implementation-groupId>com.github.ben-manes.caffeine</implementation-groupId>
+    <implementation-artifactId>jcache</implementation-artifactId>
+    <implementation-version>2.1.0</implementation-version>
+
+    <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
+    <CacheManagerImpl>com.github.benmanes.caffeine.jcache.CacheManagerImpl</CacheManagerImpl>
+    <CacheImpl>com.github.benmanes.caffeine.jcache.CacheProxy</CacheImpl>
+    <CacheEntryImpl>com.github.benmanes.caffeine.jcache.EntryProxy</CacheEntryImpl>
+
+    <!--The MBeanServer, so that the TCK can resolve it. -->
+    <javax.management.builder.initial>com.github.benmanes.caffeine.jcache.management.JCacheMBeanServerBuilder
+    </javax.management.builder.initial>
+    <org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+
+  </properties>
+
+</project>
