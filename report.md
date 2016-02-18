@@ -246,6 +246,36 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 Excluded tests total: 14
 
+## Caffeine V2.x test
+
+Implementation URL: https://github.com/ben-manes/caffeine
+
+### Test configuration
+
+```` xml
+<implementation-groupId>com.github.ben-manes.caffeine</immplementation-groupId>
+<implementation-artifactId>jcache</implementation-artifactId>
+<implementation-version>2.1.0</implementation-version>
+<CacheManagerImpl>com.github.benmanes.caffeine.jcache.CacheManagerImpl</CacheManagerImpl>
+<CacheImpl>com.github.benmanes.caffeine.jcache.CacheProxy</CacheImpl>
+<CacheEntryImpl>com.github.benmanes.caffeine.jcache.EntryProxy</CacheEntryImpl>
+<javax.management.builder.initial>com.github.benmanes.caffeine.jcache.management.JCacheMBeanServerBuilder</javax.management.builder.initial>
+<org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+<jcache.api.version>1.0.0<jcache.api.version>
+<jcache.tck.version>1.0.1<jcache.tck.version>
+<jsr107-test-zoo-version>1.1-SNAPSHOT<jsr107-test-zoo-version>
+````
+
+### Test result
+
+Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
+
+### Excluded tests
+
+- org.jsr107.tck.CachingTest dummyTest
+
+Excluded tests total: 1
+
 ## coherence V12.1.3 test
 
 Implementation URL: http://www.oracle.com/technetwork/middleware/coherence/overview/index.html
@@ -279,13 +309,14 @@ Excluded tests total: 1
 
 # Test run summary
 ````
-JSR107 TCK testing zoo ............................. SUCCESS [ 1.085 s]
-RI Version 1.0 test ................................ SUCCESS [ 27.129 s]
-Infinispan 7.x test ................................ SUCCESS [ 29.510 s]
-Apache Ignite 1.x test ............................. SUCCESS [02:02 min]
-Ehcache-JCache V1.x test ........................... SUCCESS [ 27.838 s]
+JSR107 TCK testing zoo ............................. SUCCESS [ 0.944 s]
+RI Version 1.0 test ................................ SUCCESS [ 27.003 s]
+Infinispan 7.x test ................................ SUCCESS [ 29.225 s]
+Apache Ignite 1.x test ............................. SUCCESS [05:05 min]
+Ehcache-JCache V1.x test ........................... SUCCESS [ 27.997 s]
 Hazelcast V3.4.x test .............................. SUCCESS [04:32 min]
-Apache JCS Version 2.0 test ........................ SUCCESS [ 27.537 s]
-BlazingCache Version 1.x test ...................... SUCCESS [ 36.180 s]
-coherence V12.1.3 test ............................. SUCCESS [02:23 min]
+Apache JCS Version 2.0 test ........................ SUCCESS [ 27.575 s]
+BlazingCache Version 1.x test ...................... SUCCESS [ 36.178 s]
+Caffeine V2.x test ................................. SUCCESS [ 24.503 s]
+coherence V12.1.3 test ............................. SUCCESS [02:22 min]
 ````
