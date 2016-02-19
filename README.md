@@ -8,6 +8,8 @@ source cache implementations. These are:
   * Hazelcast
   * Apache Ignite
   * Infinispan
+  * Blazing Cache
+  * Caffeine
   
 These closed source implementations need to be downloaded separately:
 
