@@ -131,6 +131,38 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 Excluded tests total: 1
 
+## Ehcache V3 test
+
+Implementation URL: https://github.com/ehcache/ehcache-jcache
+
+### Test configuration
+
+```` xml
+<implementation-groupId>org.ehcache</immplementation-groupId>
+<implementation-artifactId>ehcache</implementation-artifactId>
+<implementation-version>3.0.1</implementation-version>
+<CacheManagerImpl>org.ehcache.CacheManager</CacheManagerImpl>
+<CacheImpl>org.ehcache.Cache</CacheImpl>
+<CacheEntryImpl>org.ehcache.Cache$Entry</CacheEntryImpl>
+<javax.management.builder.initial>org.ehcache.jsr107.internal.tck.Eh107MBeanServerBuilder</javax.management.builder.initial>
+<org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+<jcache.api.version>1.0.0<jcache.api.version>
+<jcache.tck.version>1.0.1<jcache.tck.version>
+<jsr107-test-zoo-version>1.1-SNAPSHOT<jsr107-test-zoo-version>
+````
+
+### Test result
+
+Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
+
+### Excluded tests
+
+- org.jsr107.tck.management.CacheMBStatisticsBeanTest testPutIfAbsent
+- org.jsr107.tck.CachingTest dummyTest
+- org.jsr107.tck.spi.CachingProviderClassLoaderTest getCacheManagerSingleton
+
+Excluded tests total: 3
+
 ## Hazelcast V3.4.x test
 
 Implementation URL: http://docs.hazelcast.org/docs/3.4/manual/html/jcache.html
@@ -309,14 +341,15 @@ Excluded tests total: 1
 
 # Test run summary
 ````
-JSR107 TCK testing zoo ............................. SUCCESS [ 0.944 s]
-RI Version 1.0 test ................................ SUCCESS [ 27.003 s]
-Infinispan 7.x test ................................ SUCCESS [ 29.225 s]
-Apache Ignite 1.x test ............................. SUCCESS [05:05 min]
-Ehcache-JCache V1.x test ........................... SUCCESS [ 27.997 s]
+JSR107 TCK testing zoo ............................. SUCCESS [ 1.036 s]
+RI Version 1.0 test ................................ SUCCESS [ 26.917 s]
+Infinispan 7.x test ................................ SUCCESS [ 29.396 s]
+Apache Ignite 1.x test ............................. SUCCESS [05:06 min]
+Ehcache-JCache V1.x test ........................... SUCCESS [ 28.125 s]
+Ehcache V3 test .................................... SUCCESS [ 32.127 s]
 Hazelcast V3.4.x test .............................. SUCCESS [04:32 min]
-Apache JCS Version 2.0 test ........................ SUCCESS [ 27.575 s]
-BlazingCache Version 1.x test ...................... SUCCESS [ 36.178 s]
-Caffeine V2.x test ................................. SUCCESS [ 24.503 s]
+Apache JCS Version 2.0 test ........................ SUCCESS [ 27.814 s]
+BlazingCache Version 1.x test ...................... SUCCESS [ 36.397 s]
+Caffeine V2.x test ................................. SUCCESS [ 25.828 s]
 coherence V12.1.3 test ............................. SUCCESS [02:22 min]
 ````
