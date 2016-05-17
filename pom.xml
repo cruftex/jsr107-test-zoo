@@ -108,11 +108,11 @@
 
         <testResources>
             <testResource>
-                <directory>src/test/resources</directory>
+                <directory>../src/test/resources</directory>
                 <filtering>true</filtering>
             </testResource>
             <testResource>
-                <directory>../src/test/resources</directory>
+                <directory>src/test/resources</directory>
                 <filtering>true</filtering>
             </testResource>
         </testResources>
@@ -269,6 +269,7 @@
         <module>infinispan-V7-test</module>
         <module>ignite-V1-test</module>
         <module>ehcache-jcache-V1-test</module>
+        <module>ehcache-V3-test</module>
         <module>hazelcast-V3.4-test</module>
         <module>jcs-V2-test</module>
         <module>blazingcache-V1-test</module>
@@ -280,12 +281,6 @@
             <id>coherence</id>
             <modules>
                 <module>coherence-V12-test</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>ehcache3</id>
-            <modules>
-                <module>ehcache-V3-test</module>
             </modules>
         </profile>
     </profiles>
