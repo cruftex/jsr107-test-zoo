@@ -30,10 +30,10 @@
     <!-- Implementation coordinates -->
     <implementation-groupId>org.blazingcache</implementation-groupId>
     <implementation-artifactId>blazingcache-jcache</implementation-artifactId>
-    <implementation-version>1.4.0</implementation-version>
+    <implementation-version>1.9.0</implementation-version>
 
     <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
-    <CacheManagerImpl>blazingcache.jcache.BlazingCacheCacheManager</CacheManagerImpl>
+    <CacheManagerImpl>blazingcache.jcache.BlazingCacheManager</CacheManagerImpl>
     <CacheImpl>blazingcache.jcache.BlazingCacheCache</CacheImpl>
     <CacheEntryImpl>blazingcache.jcache.BlazingCacheEntry</CacheEntryImpl>
 
