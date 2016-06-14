@@ -244,8 +244,8 @@ Implementation URL: http://blazingcache.org
 ```` xml
 <implementation-groupId>org.blazingcache</immplementation-groupId>
 <implementation-artifactId>blazingcache-jcache</implementation-artifactId>
-<implementation-version>1.4.0</implementation-version>
-<CacheManagerImpl>blazingcache.jcache.BlazingCacheCacheManager</CacheManagerImpl>
+<implementation-version>1.9.0</implementation-version>
+<CacheManagerImpl>blazingcache.jcache.BlazingCacheManager</CacheManagerImpl>
 <CacheImpl>blazingcache.jcache.BlazingCacheCache</CacheImpl>
 <CacheEntryImpl>blazingcache.jcache.BlazingCacheEntry</CacheEntryImpl>
 <javax.management.builder.initial>blazingcache.jcache.BlazingCacheMBeanServerBuilder</javax.management.builder.initial>
@@ -261,22 +261,9 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 ### Excluded tests
 
-- org.jsr107.tck.StoreByReferenceTest putIfAbsent_Missing
-- org.jsr107.tck.StoreByReferenceTest getAndPut_NotThere
-- org.jsr107.tck.StoreByReferenceTest putAll
-- org.jsr107.tck.StoreByReferenceTest getAndPut_Existing
-- org.jsr107.tck.StoreByReferenceTest putIfAbsent_There
-- org.jsr107.tck.StoreByReferenceTest get_Existing
-- org.jsr107.tck.StoreByReferenceTest replace_3arg
-- org.jsr107.tck.StoreByReferenceTest get_Existing_NotSameKey
-- org.jsr107.tck.StoreByReferenceTest put_Existing_NotSameKey
-- org.jsr107.tck.StoreByReferenceTest getAndReplace
-- org.jsr107.tck.StoreByReferenceTest getAndPut_Existing_NotSameKey
 - org.jsr107.tck.CachingTest dummyTest
-- org.jsr107.tck.CacheManagerTest testUnwrap
-- org.jsr107.tck.TypesTest simpleAPINoGenericsAndNoTypeEnforcementStoreByReference
 
-Excluded tests total: 14
+Excluded tests total: 1
 
 ## Caffeine V2.x test
 
@@ -341,15 +328,15 @@ Excluded tests total: 1
 
 # Test run summary
 ````
-JSR107 TCK testing zoo ............................. SUCCESS [ 1.036 s]
-RI Version 1.0 test ................................ SUCCESS [ 26.917 s]
-Infinispan 7.x test ................................ SUCCESS [ 29.396 s]
-Apache Ignite 1.x test ............................. SUCCESS [05:06 min]
-Ehcache-JCache V1.x test ........................... SUCCESS [ 28.125 s]
-Ehcache V3 test .................................... SUCCESS [ 32.127 s]
+JSR107 TCK testing zoo ............................. SUCCESS [ 1.105 s]
+RI Version 1.0 test ................................ SUCCESS [ 27.072 s]
+Infinispan 7.x test ................................ SUCCESS [ 28.952 s]
+Apache Ignite 1.x test ............................. SUCCESS [05:11 min]
+Ehcache-JCache V1.x test ........................... SUCCESS [ 28.183 s]
+Ehcache V3 test .................................... SUCCESS [ 32.375 s]
 Hazelcast V3.4.x test .............................. SUCCESS [04:32 min]
-Apache JCS Version 2.0 test ........................ SUCCESS [ 27.814 s]
-BlazingCache Version 1.x test ...................... SUCCESS [ 36.397 s]
-Caffeine V2.x test ................................. SUCCESS [ 25.828 s]
-coherence V12.1.3 test ............................. SUCCESS [02:22 min]
+Apache JCS Version 2.0 test ........................ SUCCESS [ 27.760 s]
+BlazingCache Version 1.x test ...................... SUCCESS [ 37.960 s]
+Caffeine V2.x test ................................. SUCCESS [ 25.105 s]
+coherence V12.1.3 test ............................. SUCCESS [02:24 min]
 ````
