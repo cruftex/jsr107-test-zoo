@@ -13,14 +13,14 @@
   <version>1.1-SNAPSHOT</version>
 
   <name>Ehcache V3 test</name>
-  <url>https://github.com/ehcache/ehcache-jcache</url>
+  <url>https://github.com/ehcache/ehcache3</url>
 
     <properties>
 
     <!-- Implementation coordinates -->
     <implementation-groupId>org.ehcache</implementation-groupId>
     <implementation-artifactId>ehcache</implementation-artifactId>
-    <implementation-version>3.0.1</implementation-version>
+    <implementation-version>3.1.3</implementation-version>
 
     <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
     <CacheManagerImpl>org.ehcache.CacheManager</CacheManagerImpl>
