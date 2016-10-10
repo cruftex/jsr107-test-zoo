@@ -20,7 +20,7 @@
     <!-- Implementation coordinates -->
     <implementation-groupId>org.ehcache</implementation-groupId>
     <implementation-artifactId>ehcache</implementation-artifactId>
-    <implementation-version>3.0.1</implementation-version>
+    <implementation-version>3.1.3</implementation-version>
 
     <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
     <CacheManagerImpl>org.ehcache.CacheManager</CacheManagerImpl>
