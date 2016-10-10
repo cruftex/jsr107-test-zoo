@@ -13,7 +13,7 @@
   <version>1.1-SNAPSHOT</version>
 
   <name>Ehcache V3 test</name>
-  <url>https://github.com/ehcache/ehcache-jcache</url>
+  <url>https://github.com/ehcache/ehcache3</url>
 
     <properties>
 
