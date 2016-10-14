@@ -1,7 +1,6 @@
 # TCK tests for all JSR107 implementations
 
-This project uses the maven test runner to execute JSR107 TCK tests for all currently available compatible open 
-source cache implementations. These are:
+This project uses the maven test runner to execute JSR107 TCK tests for available open source cache implementations. These are:
 
   * JCache RI
   * Ehcache
@@ -46,7 +45,7 @@ Each test for an implementation is in a submodule. The submodules contain the re
 ## Report
 
 A tiny awk file extracts all relevant information from the output to get a complete overview of the configuration 
-for each implementation and there compliance status.
+for each implementation and their test results.
 
 The latest test run report is here: [report.md](report.md) 
  
