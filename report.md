@@ -295,36 +295,6 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 Excluded tests total: 1
 
-## coherence V12.1.3 test
-
-Implementation URL: http://www.oracle.com/technetwork/middleware/coherence/overview/index.html
-
-### Test configuration
-
-```` xml
-<implementation-groupId>com.oracle.coherence</immplementation-groupId>
-<implementation-artifactId>coherence</implementation-artifactId>
-<implementation-version>12.1.3-0-0</implementation-version>
-<CacheManagerImpl>com.tangosol.coherence.jcache.CoherenceBasedCacheManager</CacheManagerImpl>
-<CacheImpl>com.tangosol.coherence.jcache.CoherenceBasedCache</CacheImpl>
-<CacheEntryImpl>com.tangosol.coherence.jcache.common.CoherenceCacheEntry</CacheEntryImpl>
-<javax.management.builder.initial>com.tangosol.net.management.jmx.WrapperMBeanServerBuilder</javax.management.builder.initial>
-<org.jsr107.tck.management.agentId>Coherence WrapperMBeanServer</org.jsr107.tck.management.agentId>
-<jcache.api.version>1.0.0<jcache.api.version>
-<jcache.tck.version>1.0.1<jcache.tck.version>
-<jsr107-test-zoo-version>1.1-SNAPSHOT<jsr107-test-zoo-version>
-````
-
-### Test result
-
-Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
-
-### Excluded tests
-
-- org.jsr107.tck.CachingTest dummyTest
-
-Excluded tests total: 1
-
 
 # Test run summary
 ````
@@ -338,5 +308,4 @@ Hazelcast V3.4.x test .............................. SUCCESS [04:35 min]
 Apache JCS Version 2.0 test ........................ SUCCESS [ 28.684 s]
 BlazingCache Version 1.x test ...................... SUCCESS [ 43.116 s]
 Caffeine V2.x test ................................. SUCCESS [ 26.141 s]
-coherence V12.1.3 test ............................. SUCCESS [02:22 min]
 ````
