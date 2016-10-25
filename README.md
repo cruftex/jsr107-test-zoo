@@ -9,6 +9,7 @@ This project uses the maven test runner to execute JSR107 TCK tests for availabl
   * Infinispan
   * Blazing Cache
   * Caffeine
+  * Triava Cache
   
 These closed source implementations need to be downloaded separately:
 
