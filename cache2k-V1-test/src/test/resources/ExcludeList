@@ -1,0 +1,5 @@
+# This is a dummy test that fails if not in the exclude list.
+org.jsr107.tck.CachingTest#dummyTest
+
+# see https://github.com/jsr107/jsr107tck/issues/63
+org.jsr107.tck.management.CacheMBStatisticsBeanTest#testPutIfAbsent

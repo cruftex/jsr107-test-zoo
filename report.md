@@ -325,18 +325,51 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 Excluded tests total: 1
 
+## cache2k V1.x test
+
+Implementation URL: https://cache2k.org
+
+### Test configuration
+
+```` xml
+<implementation-groupId>org.cache2k</immplementation-groupId>
+<implementation-artifactId>cache2k-jcache</implementation-artifactId>
+<implementation-version>0.28-BETA</implementation-version>
+<CacheManagerImpl>org.cache2k.CacheManger</CacheManagerImpl>
+<CacheImpl>org.cache2k.Cache</CacheImpl>
+<CacheEntryImpl>org.cache2k.CacheEntry</CacheEntryImpl>
+<javax.management.builder.initial>org.cache2k.jcache.provider.tckGlue.TckMBeanServerBuilder</javax.management.builder.initial>
+<org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+<jcache.api.version>1.0.0<jcache.api.version>
+<jcache.tck.version>1.0.1<jcache.tck.version>
+<jsr107-test-zoo-version>1.1-SNAPSHOT<jsr107-test-zoo-version>
+````
+
+### Test result
+
+Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
+
+### Excluded tests
+
+- org.jsr107.tck.CachingTest dummyTest
+- org.jsr107.tck.CacheManagerTest testUnwrap
+- org.jsr107.tck.management.CacheMBStatisticsBeanTest testPutIfAbsent
+
+Excluded tests total: 3
+
 
 # Test run summary
 ````
-JSR107 TCK testing zoo ............................. SUCCESS [ 1.346 s]
-RI Version 1.0 test ................................ SUCCESS [ 27.263 s]
-Infinispan 7.x test ................................ SUCCESS [ 30.716 s]
-Apache Ignite 1.x test ............................. SUCCESS [04:12 min]
-Ehcache-JCache V1.x test ........................... SUCCESS [ 27.965 s]
-Ehcache V3 test .................................... SUCCESS [ 32.437 s]
-Hazelcast V3.4.x test .............................. SUCCESS [04:34 min]
-Apache JCS Version 2.0 test ........................ SUCCESS [ 28.014 s]
-BlazingCache Version 1.x test ...................... SUCCESS [ 37.593 s]
-Caffeine V2.x test ................................. SUCCESS [ 24.515 s]
-Triava Cache Version 1.0 test ...................... SUCCESS [ 28.190 s]
+JSR107 TCK testing zoo ............................. SUCCESS [ 1.101 s]
+RI Version 1.0 test ................................ SUCCESS [ 27.084 s]
+Infinispan 7.x test ................................ SUCCESS [ 28.730 s]
+Apache Ignite 1.x test ............................. SUCCESS [04:10 min]
+Ehcache-JCache V1.x test ........................... SUCCESS [ 28.853 s]
+Ehcache V3 test .................................... SUCCESS [ 32.411 s]
+Hazelcast V3.4.x test .............................. SUCCESS [04:32 min]
+Apache JCS Version 2.0 test ........................ SUCCESS [ 27.694 s]
+BlazingCache Version 1.x test ...................... SUCCESS [ 37.516 s]
+Caffeine V2.x test ................................. SUCCESS [ 24.585 s]
+Triava Cache Version 1.0 test ...................... SUCCESS [ 27.294 s]
+cache2k V1.x test .................................. SUCCESS [ 27.647 s]
 ````
