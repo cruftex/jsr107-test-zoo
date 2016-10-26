@@ -274,6 +274,7 @@
         <module>jcs-V2-test</module>
         <module>blazingcache-V1-test</module>
         <module>caffeine-V2-test</module>
+        <module>triavacache-V1-test</module>
     </modules>
 
     <profiles>
