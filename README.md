@@ -10,6 +10,7 @@ This project uses the maven test runner to execute JSR107 TCK tests for availabl
   * Blazing Cache
   * Caffeine
   * Triava Cache
+  * redisson (Redis based In-Memory Data Grid for Java)
   
 These closed source implementations need to be downloaded separately:
 
