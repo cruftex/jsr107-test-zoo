@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>parent</artifactId>
+    <groupId>org.cache2k.jsr107-test-zoo</groupId>
+    <version>1.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>redisson-V2-test</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>Redisson JCache test</name>
+  <url>https://github.com/mrniko/redis-jcache</url>
+
+  <build>
+     <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.5.0</version>
+          <executions>
+              <execution>
+                <id>run-redis</id>
+                <phase>process-test-resources</phase>
+                <goals>
+                  <goal>exec</goal>
+                </goals>
+              </execution>
+          </executions>
+          <configuration>
+            <executable>${redis.path}</executable>
+            <async>true</async>
+            <asyncDestroyOnShutdown>true</asyncDestroyOnShutdown>
+            <arguments>
+              <argument>--appendonly</argument>
+              <argument>no</argument>
+              <argument>--port</argument>
+              <argument>6371</argument>
+            </arguments>
+          </configuration>
+        </plugin>
+     </plugins>
+   </build>
+
+  <properties>
+
+    <!-- Implementation coordinates -->
+    <implementation-groupId>org.redisson</implementation-groupId>
+    <implementation-artifactId>redisson</implementation-artifactId>
+    <implementation-version>2.7.2</implementation-version>
+
+    <!-- CacheManager and Cache implementation. Used by the unwrap tests. -->
+    <CacheManagerImpl>org.redisson.jcache.JCacheManager</CacheManagerImpl>
+    <CacheImpl>org.redisson.jcache.JCache</CacheImpl>
+    <CacheEntryImpl>org.redisson.jcache.JCacheEntry</CacheEntryImpl>
+
+    <!--The MBeanServer, so that the TCK can resolve it. -->
+    <javax.management.builder.initial>org.redisson.jcache.JCacheMBeanServerBuilder
+    </javax.management.builder.initial>
+    <org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+
+  </properties>
+
+</project>

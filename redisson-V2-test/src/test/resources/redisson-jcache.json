@@ -1,0 +1,7 @@
+{
+   "singleServerConfig":{
+      "address": "redis://127.0.0.1:6371"
+   },
+   "codec": {"class":"org.redisson.codec.SerializationCodec"}
+
+}
