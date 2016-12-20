@@ -357,19 +357,62 @@ Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
 
 Excluded tests total: 3
 
+## Redisson JCache test
+
+Implementation URL: http://redisson.org
+
+### Test configuration
+
+```` xml
+<implementation-groupId>org.redisson</immplementation-groupId>
+<implementation-artifactId>redisson</implementation-artifactId>
+<implementation-version>2.7.2</implementation-version>
+<CacheManagerImpl>org.redisson.jcache.JCacheManager</CacheManagerImpl>
+<CacheImpl>org.redisson.jcache.JCache</CacheImpl>
+<CacheEntryImpl>org.redisson.jcache.JCacheEntry</CacheEntryImpl>
+<javax.management.builder.initial>org.redisson.jcache.JCacheMBeanServerBuilder</javax.management.builder.initial>
+<org.jsr107.tck.management.agentId>anyvalue</org.jsr107.tck.management.agentId>
+<jcache.api.version>1.0.0<jcache.api.version>
+<jcache.tck.version>1.0.1<jcache.tck.version>
+<jsr107-test-zoo-version>1.1-SNAPSHOT<jsr107-test-zoo-version>
+````
+
+### Test result
+
+Tests run: 465, Failures: 0, Errors: 0, Skipped: 0
+
+### Excluded tests
+
+- org.jsr107.tck.StoreByReferenceTest putIfAbsent_Missing
+- org.jsr107.tck.StoreByReferenceTest getAndPut_NotThere
+- org.jsr107.tck.StoreByReferenceTest putAll
+- org.jsr107.tck.StoreByReferenceTest getAndPut_Existing
+- org.jsr107.tck.StoreByReferenceTest putIfAbsent_There
+- org.jsr107.tck.StoreByReferenceTest get_Existing
+- org.jsr107.tck.StoreByReferenceTest replace_3arg
+- org.jsr107.tck.StoreByReferenceTest get_Existing_NotSameKey
+- org.jsr107.tck.StoreByReferenceTest put_Existing_NotSameKey
+- org.jsr107.tck.StoreByReferenceTest getAndReplace
+- org.jsr107.tck.StoreByReferenceTest getAndPut_Existing_NotSameKey
+- org.jsr107.tck.CachingTest dummyTest
+- org.jsr107.tck.TypesTest simpleAPINoGenericsAndNoTypeEnforcementStoreByReference
+
+Excluded tests total: 13
+
 
 # Test run summary
 ````
-JSR107 TCK testing zoo ............................. SUCCESS [ 1.101 s]
-RI Version 1.0 test ................................ SUCCESS [ 27.084 s]
-Infinispan 7.x test ................................ SUCCESS [ 28.730 s]
-Apache Ignite 1.x test ............................. SUCCESS [04:10 min]
-Ehcache-JCache V1.x test ........................... SUCCESS [ 28.853 s]
-Ehcache V3 test .................................... SUCCESS [ 32.411 s]
+JSR107 TCK testing zoo ............................. SUCCESS [ 1.349 s]
+RI Version 1.0 test ................................ SUCCESS [ 27.227 s]
+Infinispan 7.x test ................................ SUCCESS [ 29.610 s]
+Apache Ignite 1.x test ............................. SUCCESS [04:15 min]
+Ehcache-JCache V1.x test ........................... SUCCESS [ 28.407 s]
+Ehcache V3 test .................................... SUCCESS [ 32.455 s]
 Hazelcast V3.4.x test .............................. SUCCESS [04:32 min]
-Apache JCS Version 2.0 test ........................ SUCCESS [ 27.694 s]
-BlazingCache Version 1.x test ...................... SUCCESS [ 37.516 s]
-Caffeine V2.x test ................................. SUCCESS [ 24.585 s]
-Triava Cache Version 1.0 test ...................... SUCCESS [ 27.294 s]
-cache2k V1.x test .................................. SUCCESS [ 27.647 s]
+Apache JCS Version 2.0 test ........................ SUCCESS [ 27.779 s]
+BlazingCache Version 1.x test ...................... SUCCESS [ 37.752 s]
+Caffeine V2.x test ................................. SUCCESS [ 24.784 s]
+Triava Cache Version 1.0 test ...................... SUCCESS [ 27.588 s]
+cache2k V1.x test .................................. SUCCESS [ 28.161 s]
+Redisson JCache test ............................... SUCCESS [04:50 min]
 ````
