@@ -1,4 +1,4 @@
-# TCK tests for all JSR107 implementations
+# TCK tests for open source JSR107 implementations
 
 This project uses the maven test runner to execute JSR107 TCK tests for available open source cache implementations. These are:
 
