@@ -13,7 +13,7 @@
   <artifactId>redisson-V2-test</artifactId>
   <version>1.1-SNAPSHOT</version>
   <name>Redisson JCache test</name>
-  <url>https://github.com/redisson/redisson</url>
+  <url>http://redisson.org</url>
 
   <build>
      <plugins>
