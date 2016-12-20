@@ -13,7 +13,7 @@
   <artifactId>redisson-V2-test</artifactId>
   <version>1.1-SNAPSHOT</version>
   <name>Redisson JCache test</name>
-  <url>https://github.com/mrniko/redis-jcache</url>
+  <url>https://github.com/redisson/redisson</url>
 
   <build>
      <plugins>
@@ -46,6 +46,7 @@
    </build>
 
   <properties>
+    <redis.path>/usr/bin/redis-server</redis.path>
 
     <!-- Implementation coordinates -->
     <implementation-groupId>org.redisson</implementation-groupId>
