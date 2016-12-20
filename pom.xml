@@ -279,6 +279,18 @@
     </modules>
 
     <profiles>
+        <!-- redisson is tested by default, however, it needs an installed redis server.
+             The additional profile can be disabled, if needed.
+        -->
+        <profile>
+            <id>redisson</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>redisson-V2-test</module>
+            </modules>
+        </profile>
         <profile>
             <id>coherence</id>
             <modules>
